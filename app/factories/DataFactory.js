@@ -1,35 +1,86 @@
 "use strict";
-
-app.factory("DataFactory", () => {
+console.log("DataFactory");
+app.factory("DataFactory", ($q, $http, FBCreds) => {
 
 
 	const getPinList = () => {
+		console.log("PinList here");
+		let pins = [];
+		return $q( (resolve, reject) => {
+			$http.get(`${FBCreds.databaseURL}/pins.json`)
+			.then( (pinObj) => {
+				let pinCollection = pinObj.data;
+				console.log("pinCollection", pinCollection);
+			  	Object.keys(pinCollection).forEach( (key) => {
+			  		pinCollection[key].id = key;
+			  		pins.push(pinCollection[key]);
+			  	});
+			  	resolve(pins);
+			})
+			.catch( (error) => {
+				reject(error);
+			});
+		});
+	};
 
-	}
-	
-	const addPin = (obj) => {
+	const addPin = (newObj) => {
+		return $q( (resolve, reject) => {
+			let object = JSON.stringify(newObj);
+			$http.post(`${FBCreds.databaseURL}/pins.json`, object)
+			.then ( (pinID) => {
+				resolve(pinID);
+			})
+			.catch ( (error) => {
+				reject(error);
+			});
+		});
+	};
 
-	}
-	
-	const editPin = (uid, boardId, pinId) => {
+	const editPin = (pinID, editedObj) => {
+		return $q( (resolve, reject) => {
+			let newObj = JSON.stringify(editedObj);
+			$http.patch(`${FBCreds.databaseURL}/pins/${pinID}.json`, newObj)
+			.then( (pinObj) => {
+				resolve(pinObj);
+			})
+			.catch( (error) => {
+				reject(error);
+			});
+		});
+	};
 
-	}
-
-	const getBoardList = () => {
-
-	}
+	const getBoardList = (user) => {
+		console.log("boardlist here");
+		let boards = [];
+		return $q( (resolve, reject) => {
+			$http.get(`${FBCreds.databaseURL}/boards.json?orderBy="uid"&equalTo="${user}"`)
+			.then( (boardObj) => {
+				let boardCollection = boardObj.data;
+				console.log("boardCollection", boardCollection);
+				Object.keys(boardCollection).forEach( (key) => {
+					boardCollection[key].boardId = key;
+					boards.push(boardCollection[key]);
+				});
+				resolve(boards);
+			})
+			.catch( (error) => {
+				reject(error);
+			});
+		});
+	};
 
 	const deleteBoard = (uid, boardId) => {
 
-	}
+	};
 
 	const editBoard = (boardId) => {
 
-	}
+	};
 
 	const addBoard = (boardObj) => {
 
-	}
+	};
+
 
 	return {
 	  getPinList,
@@ -43,3 +94,7 @@ app.factory("DataFactory", () => {
 // getPin ???
 // getBoard ???
 });
+
+
+
+

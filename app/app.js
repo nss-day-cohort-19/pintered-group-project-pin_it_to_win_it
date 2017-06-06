@@ -19,37 +19,40 @@ new Promise((resolve, reject) => {
 app.config( ($routeProvider) => {
 	$routeProvider
 	.when('/', {
-		templateUrl: 'partials/auth.html',
-		controller: 'AuthCtrl'
-	})
-	.when('/login', {
-		templateUrl: 'partials/auth.html',
-		controller: 'AuthCtrl'
-	})
-	.when('/logout', {
-		templateUrl: 'partials/auth.html',
-		controller: 'AuthCtrl'
-	})
-	.when('/home', {
-		templateUrl: 'partials/home.html',
-		controller: 'HomeCtrl',
-		resolve: {isAuth}
-	})
-	.when('/profile', {
-		templateUrl: 'partials/profile.html',
-		controller: 'ProfileCtrl',
-		resolve: {isAuth}
-	})
-	.when('/boards', {
-		templateUrl: 'partials/boardview.html',
-		controller: 'BoardCtrl',
-		resolve: {isAuth}
+				templateUrl: 'partials/HomeCtrl.html',
+				controller: 'HomeCtrl'
+
+		// templateUrl: 'partials/auth.html'
+// 		controller: 'AuthCtrl'
+// 	})
+// 	.when('/login', {
+// 		templateUrl: 'partials/auth.html',
+// 		controller: 'AuthCtrl'
+// 	})
+// 	.when('/logout', {
+// 		templateUrl: 'partials/auth.html',
+// 		controller: 'AuthCtrl'
+// 	})
+// 	.when('/home', {
+// 		templateUrl: 'partials/home.html',
+// 		controller: 'HomeCtrl',
+// 		resolve: {isAuth}
+// 	})
+// 	.when('/profile', {
+// 		templateUrl: 'partials/profile.html',
+// 		controller: 'ProfileCtrl',
+// 		resolve: {isAuth}
+// 	})
+// 	.when('/boards', {
+// 		templateUrl: 'partials/boardview.html',
+// 		controller: 'BoardCtrl',
+// 		resolve: {isAuth}
 	})
 	.otherwise('/');
 });
 
-app.run(($location, FB-Creds) => {
-	let creds = FB-Creds;
+app.run(($location, FBCreds) => {
+	let creds = FBCreds;
 	let authConfig = {
 		apiKey: creds.apiKey,
 		authDomain: creds.authDomain,
