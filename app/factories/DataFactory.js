@@ -6,12 +6,16 @@ app.factory("DataFactory", () => {
 	const getPinList = () => {
 
 	}
+	
+	const addPin = (obj) => {
 
-	const getBoardList = () => {
+	}
+	
+	const editPin = (uid, boardId, pinId) => {
 
 	}
 
-	const editPin = (uid, boardId, pinId) => {
+	const getBoardList = () => {
 
 	}
 
@@ -20,10 +24,6 @@ app.factory("DataFactory", () => {
 	}
 
 	const editBoard = (boardId) => {
-
-	}
-
-	const addPin = (obj) => {
 
 	}
 
