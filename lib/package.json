@@ -13,7 +13,8 @@
     "angular-route": "^1.6.4",
     "firebase": "^4.1.1",
     "jquery": "^3.2.1",
-    "matchdep": "^1.0.1"
+    "matchdep": "^1.0.1",
+    "materialize-css": "^0.98.2"
   },
   "devDependencies": {
     "grunt": "^1.0.1",
