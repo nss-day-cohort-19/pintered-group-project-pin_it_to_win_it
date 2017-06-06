@@ -48,8 +48,8 @@ app.config( ($routeProvider) => {
 	.otherwise('/');
 });
 
-app.run(($location, FBCreds) => {
-	let creds = FBCreds;
+app.run(($location, FB-Creds) => {
+	let creds = FB-Creds;
 	let authConfig = {
 		apiKey: creds.apiKey,
 		authDomain: creds.authDomain,
