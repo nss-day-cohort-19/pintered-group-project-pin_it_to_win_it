@@ -31,6 +31,15 @@ app.factory("DataFactory", () => {
 
 	}
 
+	return {
+	  getPinList,
+	  getBoardList,
+	  editPin,
+	  deleteBoard,
+	  editBoard,
+	  addPin,
+	  addBoard
+	};
 // getPin ???
 // getBoard ???
 });
