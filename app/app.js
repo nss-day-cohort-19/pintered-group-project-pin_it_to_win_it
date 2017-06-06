@@ -19,7 +19,7 @@ new Promise((resolve, reject) => {
 app.config( ($routeProvider) => {
 	$routeProvider
 	.when('/', {
-				templateUrl: 'partials/HomeCtrl.html',
+				templateUrl: 'partials/home.html',
 				controller: 'HomeCtrl'
 
 		// templateUrl: 'partials/auth.html'

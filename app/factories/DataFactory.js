@@ -70,15 +70,29 @@ app.factory("DataFactory", ($q, $http, FBCreds) => {
 	};
 
 	const deleteBoard = (uid, boardId) => {
-
+		return $q ( (resolve, reject) => {
+			$http.delete(`${FBCreds.databaseURL}/boards/${boardId}.json`)
+			.then( (response) => {
+				resolve(response);
+			})
+			.catch( (error) => {
+				reject(error);
+			});
+		});
 	};
 
-	const editBoard = (boardId) => {
-
-	};
 
 	const addBoard = (boardObj) => {
-
+		return $q( (resolve, reject) => {
+			let object = JSON.stringify(boardObj);
+			$http.post(`${FBCreds.databaseURL}/boards.json`, object)
+			.then ( (boardID) => {
+				resolve(boardID);
+			})
+			.catch ( (error) => {
+				reject(error);
+			});
+		});
 	};
 
 
@@ -87,7 +101,6 @@ app.factory("DataFactory", ($q, $http, FBCreds) => {
 	  getBoardList,
 	  editPin,
 	  deleteBoard,
-	  editBoard,
 	  addPin,
 	  addBoard
 	};
