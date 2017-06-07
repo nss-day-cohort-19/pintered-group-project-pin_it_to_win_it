@@ -7,7 +7,7 @@ app.factory("DataFactory", ($q, $http, FBCreds) => {
 		console.log("PinList here");
 		let pins = [];
 		return $q( (resolve, reject) => {
-			$http.get(`${FBCreds.databaseURL}/pins.json`)
+			$http.get(`${FBCreds.databaseURL}/pins.json?orderBy="uid"&equalTo="${user}"`)
 			.then( (pinObj) => {
 				let pinCollection = pinObj.data;
 				console.log("pinCollection", pinCollection);
@@ -53,7 +53,7 @@ app.factory("DataFactory", ($q, $http, FBCreds) => {
 		console.log("boardlist here");
 		let boards = [];
 		return $q( (resolve, reject) => {
-			$http.get(`${FBCreds.databaseURL}/boards.json`)
+			$http.get(`${FBCreds.databaseURL}/boards.json?orderBy="uid"&equalTo="${user}"`)
 			.then( (boardObj) => {
 				let boardCollection = boardObj.data;
 				console.log("boardCollection", boardCollection);
@@ -69,7 +69,7 @@ app.factory("DataFactory", ($q, $http, FBCreds) => {
 		});
 	};
 
-	// ?orderBy="uid"&equalTo="${user}"
+
 
 	const deleteBoard = (uid, boardId) => {
 		return $q ( (resolve, reject) => {
