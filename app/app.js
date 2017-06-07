@@ -21,6 +21,7 @@ app.config( ($routeProvider) => {
 	.when('/', {
 				templateUrl: 'partials/home.html',
 				controller: 'HomeCtrl'
+	})
 
 		// templateUrl: 'partials/auth.html'
 // 		controller: 'AuthCtrl'
@@ -38,15 +39,18 @@ app.config( ($routeProvider) => {
 // 		controller: 'HomeCtrl',
 // 		resolve: {isAuth}
 // 	})
-// 	.when('/profile', {
-// 		templateUrl: 'partials/profile.html',
-// 		controller: 'ProfileCtrl',
-// 		resolve: {isAuth}
-// 	})
+	.when('/profile', {
+		templateUrl: 'partials/profile.html',
+		controller: 'ProfileCtrl'
+		// resolve: {isAuth}
 // 	.when('/boards', {
 // 		templateUrl: 'partials/boardview.html',
 // 		controller: 'BoardCtrl',
 // 		resolve: {isAuth}
+	})
+	.when('/createboard', {
+		templateUrl: 'partials/createboard.html',
+		controller: 'ProfileCtrl'
 	})
 	.otherwise('/');
 });
