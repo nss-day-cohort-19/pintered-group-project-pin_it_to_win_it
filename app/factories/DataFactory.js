@@ -12,7 +12,7 @@ app.factory("DataFactory", ($q, $http, FBCreds) => {
 				let pinCollection = pinObj.data;
 				console.log("pinCollection", pinCollection);
 			  	Object.keys(pinCollection).forEach( (key) => {
-			  		pinCollection[key].id = key;
+			  		pinCollection[key].pinID = key;
 			  		pins.push(pinCollection[key]);
 			  	});
 			  	resolve(pins);
@@ -58,7 +58,7 @@ app.factory("DataFactory", ($q, $http, FBCreds) => {
 				let boardCollection = boardObj.data;
 				console.log("boardCollection", boardCollection);
 				Object.keys(boardCollection).forEach( (key) => {
-					boardCollection[key].boardId = key;
+					boardCollection[key].boardID = key;
 					boards.push(boardCollection[key]);
 				});
 				resolve(boards);
