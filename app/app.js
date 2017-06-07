@@ -50,6 +50,10 @@ app.config( ($routeProvider) => {
 		controller: 'BoardCtrl',
 		resolve: {isAuth}
 	})
+	.when('/createboard', {
+		templateUrl: 'partials/createboard.html',
+		controller: 'ProfileCtrl'
+	})
 	.otherwise('/');
 });
 
