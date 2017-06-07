@@ -2,15 +2,14 @@
 
 const app = angular.module('PinItApp' ,["ngRoute"]);
 
-let isAuth = (AuthFactory) =>
-new Promise((resolve, reject) => {
+let isAuth = (AuthFactory) => new Promise ( (resolve, reject) => {
 	AuthFactory.isAuthenticated()
-	.then((userExists) => {
-		if(userExists) {
+	.then( (userExists) => {
+		if (userExists){
 			console.log("Authenticated, go ahead");
 			resolve();
 		}else {
-			console.log("Authentication rejected!");
+			console.log("Not Authenticated");
 			reject();
 		}
 	});
@@ -19,7 +18,7 @@ new Promise((resolve, reject) => {
 app.config( ($routeProvider) => {
 	$routeProvider
 	.when('/', {
-    templateUrl: 'partials/auth.html'
+    templateUrl: 'partials/auth.html',
 		controller: 'AuthCtrl'
 	})
 	.when('/login', {
@@ -42,7 +41,8 @@ app.config( ($routeProvider) => {
 	})
 	.when('/pintoboard/:boardID', {
 		templateUrl: 'partials/pintoboard.html',
-		controller: 'HomeCtrl'
+		controller: 'HomeCtrl',
+    resolve: {isAuth}
 	})
 	.when('/profile', {
 		templateUrl: 'partials/profile.html',

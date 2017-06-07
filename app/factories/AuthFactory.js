@@ -5,7 +5,7 @@ app.factory("AuthFactory", function(){
     let currentUser = null;
 
     let logoutUser = function(){
-        console.log("logoutUser");
+        console.log("logoutUser() fired");
         return firebase.auth().signOut();
     };
 
@@ -14,8 +14,9 @@ app.factory("AuthFactory", function(){
         return new Promise ( (resolve, reject) => {
             firebase.auth().onAuthStateChanged( (user) => {
                 if (user){
+                    console.log('isAuthenticated user', user);
                     currentUser = user.uid;
-                    console.log("user", user.uid);
+                    // console.log("user", user.uid);
                     resolve(true);
                 }else {
                     resolve(false);
@@ -25,6 +26,7 @@ app.factory("AuthFactory", function(){
     };
 
     let getUser = function(){
+        // console.log("currUSER", currentUser);
         return currentUser;
     };
 
