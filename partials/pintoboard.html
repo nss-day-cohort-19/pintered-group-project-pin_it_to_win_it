@@ -1,0 +1,8 @@
+<div class="row">
+	<h1>Pin To Board</h1>
+	<div>{{item.boards}}</div>
+		<a class='dropdown-button btn' ng-href='#!/pintoboard/{{board.id}}' data-activates='dropdown1' ng-click="getBoardList()">Select Board</a>
+		<ul id='dropdown1' class='dropdown-content'>
+		    <li><a ng-href="#!">{{item.title}}</a></li>
+		</ul>
+</div>

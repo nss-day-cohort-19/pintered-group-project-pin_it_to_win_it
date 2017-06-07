@@ -19,7 +19,7 @@ new Promise((resolve, reject) => {
 app.config( ($routeProvider) => {
 	$routeProvider
 	.when('/', {
-		templateUrl: 'partials/auth.html'
+    templateUrl: 'partials/auth.html'
 		controller: 'AuthCtrl'
 	})
 	.when('/login', {
@@ -34,6 +34,15 @@ app.config( ($routeProvider) => {
 		templateUrl: 'partials/home.html',
 		controller: 'HomeCtrl',
 		resolve: {isAuth}
+	})
+  	.when('/pintoboard', {
+		templateUrl: 'partials/pintoboard.html',
+		controller: 'HomeCtrl',
+    resolve: {isAuth}
+	})
+	.when('/pintoboard/:boardID', {
+		templateUrl: 'partials/pintoboard.html',
+		controller: 'HomeCtrl'
 	})
 	.when('/profile', {
 		templateUrl: 'partials/profile.html',
@@ -52,7 +61,8 @@ app.config( ($routeProvider) => {
 	})
 	.when('/createboard', {
 		templateUrl: 'partials/createboard.html',
-		controller: 'ProfileCtrl'
+		controller: 'ProfileCtrl',
+    resolve: {isAuth}
 	})
 	.otherwise('/');
 });
