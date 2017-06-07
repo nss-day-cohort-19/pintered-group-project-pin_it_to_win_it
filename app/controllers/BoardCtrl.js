@@ -6,6 +6,14 @@ app.controller("BoardCtrl", function($scope, DataFactory, $location, AuthFactory
 	console.log("$routeParams", $routeParams.boardID);
 // This view has the following buttons: "Create Pin", "Delete Pin", "Delete Board".
 
+$scope.newPin = { //this will
+		boardID: [],
+		pinID: "",
+		title: "",
+		UID: "",
+		url: ""
+	};
+
 	$scope.getPinList = () => {
 		console.log("called???");
 		DataFactory.getPinList()
@@ -25,6 +33,13 @@ app.controller("BoardCtrl", function($scope, DataFactory, $location, AuthFactory
 			console.log("a boardID", $scope.boardID);
 		});
 	};
+
+	$scope.addPin = function(){
+		DataFactory.addPin($scope.newPin);
+	};
+
+
 	$scope.getPinList();
 	$scope.getBoard();
+
 });

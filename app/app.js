@@ -18,7 +18,7 @@ let isAuth = (AuthFactory) => new Promise ( (resolve, reject) => {
 app.config( ($routeProvider) => {
 	$routeProvider
 	.when('/', {
-    templateUrl: 'partials/auth.html',
+    	templateUrl: 'partials/auth.html',
 		controller: 'AuthCtrl'
 	})
 	.when('/login', {
@@ -34,15 +34,10 @@ app.config( ($routeProvider) => {
 		controller: 'HomeCtrl',
 		resolve: {isAuth}
 	})
-  	.when('/pintoboard', {
+	.when('/pintoboard/:pinID', {
 		templateUrl: 'partials/pintoboard.html',
 		controller: 'HomeCtrl',
-    resolve: {isAuth}
-	})
-	.when('/pintoboard/:boardID', {
-		templateUrl: 'partials/pintoboard.html',
-		controller: 'HomeCtrl',
-    resolve: {isAuth}
+   		resolve: {isAuth}
 	})
 	.when('/profile', {
 		templateUrl: 'partials/profile.html',
@@ -62,7 +57,7 @@ app.config( ($routeProvider) => {
 	.when('/createboard', {
 		templateUrl: 'partials/createboard.html',
 		controller: 'ProfileCtrl',
-    resolve: {isAuth}
+    	resolve: {isAuth}
 	})
 	.otherwise('/');
 });

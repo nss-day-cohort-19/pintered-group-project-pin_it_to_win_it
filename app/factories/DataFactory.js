@@ -7,7 +7,7 @@ app.factory("DataFactory", ($q, $http, FBCreds) => {
 		console.log("PinList here");
 		let pins = [];
 		return $q( (resolve, reject) => {
-			$http.get(`${FBCreds.databaseURL}/pins.json?orderBy="uid"&equalTo="${user}"`)
+			$http.get(`${FBCreds.databaseURL}/pins.json`)
 			.then( (pinObj) => {
 				let pinCollection = pinObj.data;
 				console.log("pinCollection", pinCollection);
@@ -16,6 +16,18 @@ app.factory("DataFactory", ($q, $http, FBCreds) => {
 			  		pins.push(pinCollection[key]);
 			  	});
 			  	resolve(pins);
+			})
+			.catch( (error) => {
+				reject(error);
+			});
+		});
+	};
+
+	const getPin = (pinID) => {
+		return $q( (resolve, reject) => {
+			$http.get(`${FBCreds.databaseURL}/pins/${pinID}.json`)
+			.then( (pinObj) => {
+				resolve(pinObj);
 			})
 			.catch( (error) => {
 				reject(error);
