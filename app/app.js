@@ -19,8 +19,17 @@ new Promise((resolve, reject) => {
 app.config( ($routeProvider) => {
 	$routeProvider
 	.when('/', {
-				templateUrl: 'partials/home.html',
-				controller: 'HomeCtrl'
+		templateUrl: 'partials/home.html',
+		controller: 'HomeCtrl'
+	})
+	.when('/pintoboard', {
+		templateUrl: 'partials/pintoboard.html',
+		controller: 'HomeCtrl'
+	})
+	.when('/pintoboard/:boardID', {
+		templateUrl: 'partials/pintoboard.html',
+		controller: 'HomeCtrl'
+	})
 
 		// templateUrl: 'partials/auth.html'
 // 		controller: 'AuthCtrl'
@@ -47,7 +56,6 @@ app.config( ($routeProvider) => {
 // 		templateUrl: 'partials/boardview.html',
 // 		controller: 'BoardCtrl',
 // 		resolve: {isAuth}
-	})
 	.otherwise('/');
 });
 
