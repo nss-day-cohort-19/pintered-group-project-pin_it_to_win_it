@@ -8,8 +8,16 @@ $scope.getPinList = function () {
 		$scope.pins = pins;
 		console.log("pins", $scope.pins);
 	});
-	// console.log("Home controller");
 };
+
+$scope.getBoardList = function() {
+		// get the user's board
+		DataFactory.getBoardList()
+		.then( (boards) => {
+			$scope.boards = boards;
+			console.log("boards", $scope.boards);
+		});
+	};
 
 $scope.getPinList();
 });

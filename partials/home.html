@@ -1,0 +1,7 @@
+<div class="row">
+	<h1>Home Page</h1>
+	<div ng-repeat="item in pins">
+		<div><a ng-href="#!/pintoboard/{{item.id}}">{{item.url}}</a></div>
+		<div>{{item.title}}</div>
+	</div>
+</div>
