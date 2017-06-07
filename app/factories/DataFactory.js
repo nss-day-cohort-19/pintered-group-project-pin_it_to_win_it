@@ -55,7 +55,7 @@ app.factory("DataFactory", ($q, $http, FBCreds) => {
 		console.log("boardlist here");
 		let boards = [];
 		return $q( (resolve, reject) => {
-			$http.get(`${FBCreds.databaseURL}/boards.json`) //?orderBy="uid"&equalTo="${user}"
+			$http.get(`${FBCreds.databaseURL}/boards.json?orderBy="uid"&equalTo="${user}"`) 
 			.then( (boardObj) => {
 				let boardCollection = boardObj.data;
 				console.log("boardCollection", boardCollection);
