@@ -23,6 +23,7 @@ app.factory("DataFactory", ($q, $http, FBCreds) => {
 		});
 	};
 
+// This is for the createPin
 	const addPin = (newObj) => {
 		return $q( (resolve, reject) => {
 			let object = JSON.stringify(newObj);
@@ -36,6 +37,7 @@ app.factory("DataFactory", ($q, $http, FBCreds) => {
 		});
 	};
 
+// This is for a user adding a pin to their board/profile
 	const editPin = (pinID, editedObj) => {
 		return $q( (resolve, reject) => {
 			let newObj = JSON.stringify(editedObj);
@@ -53,7 +55,7 @@ app.factory("DataFactory", ($q, $http, FBCreds) => {
 		console.log("boardlist here");
 		let boards = [];
 		return $q( (resolve, reject) => {
-			$http.get(`${FBCreds.databaseURL}/boards.json?orderBy="uid"&equalTo="${user}"`)
+			$http.get(`${FBCreds.databaseURL}/boards.json`) //?orderBy="uid"&equalTo="${user}"
 			.then( (boardObj) => {
 				let boardCollection = boardObj.data;
 				console.log("boardCollection", boardCollection);
@@ -62,6 +64,18 @@ app.factory("DataFactory", ($q, $http, FBCreds) => {
 					boards.push(boardCollection[key]);
 				});
 				resolve(boards);
+			})
+			.catch( (error) => {
+				reject(error);
+			});
+		});
+	};
+
+	const getBoard = ( boardID ) => {
+		return $q( (resolve, reject) => {
+			$http.get(`${FBCreds.databaseURL}/boards/${boardID}.json`)
+			.then( (boardObj) => {
+				resolve(boardObj.data);
 			})
 			.catch( (error) => {
 				reject(error);
@@ -102,7 +116,8 @@ app.factory("DataFactory", ($q, $http, FBCreds) => {
 	  editPin,
 	  deleteBoard,
 	  addPin,
-	  addBoard
+	  addBoard,
+	  getBoard
 	};
 // getPin ???
 // getBoard ???

@@ -21,7 +21,7 @@ app.config( ($routeProvider) => {
 	.when('/', {
 				templateUrl: 'partials/home.html',
 				controller: 'HomeCtrl'
-
+	})
 		// templateUrl: 'partials/auth.html'
 // 		controller: 'AuthCtrl'
 // 	})
@@ -43,10 +43,14 @@ app.config( ($routeProvider) => {
 // 		controller: 'ProfileCtrl',
 // 		resolve: {isAuth}
 // 	})
-// 	.when('/boards', {
-// 		templateUrl: 'partials/boardview.html',
-// 		controller: 'BoardCtrl',
-// 		resolve: {isAuth}
+	.when('/boards', {
+		templateUrl: 'partials/boardView.html',
+		controller: 'BoardCtrl'
+		// resolve: {isAuth}
+	})
+	.when('/createpin', {
+		templateUrl: 'partials/createpin.html',
+		controller: 'BoardCtrl'
 	})
 	.otherwise('/');
 });
