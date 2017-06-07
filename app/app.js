@@ -19,38 +19,36 @@ new Promise((resolve, reject) => {
 app.config( ($routeProvider) => {
 	$routeProvider
 	.when('/', {
-				templateUrl: 'partials/home.html',
-				controller: 'HomeCtrl'
+		templateUrl: 'partials/auth.html'
+		controller: 'AuthCtrl'
 	})
-		// templateUrl: 'partials/auth.html'
-// 		controller: 'AuthCtrl'
-// 	})
-// 	.when('/login', {
-// 		templateUrl: 'partials/auth.html',
-// 		controller: 'AuthCtrl'
-// 	})
-// 	.when('/logout', {
-// 		templateUrl: 'partials/auth.html',
-// 		controller: 'AuthCtrl'
-// 	})
-// 	.when('/home', {
-// 		templateUrl: 'partials/home.html',
-// 		controller: 'HomeCtrl',
-// 		resolve: {isAuth}
-// 	})
-// 	.when('/profile', {
-// 		templateUrl: 'partials/profile.html',
-// 		controller: 'ProfileCtrl',
-// 		resolve: {isAuth}
-// 	})
+	.when('/login', {
+		templateUrl: 'partials/auth.html',
+		controller: 'AuthCtrl'
+	})
+	.when('/logout', {
+		templateUrl: 'partials/auth.html',
+		controller: 'AuthCtrl'
+	})
+	.when('/home', {
+		templateUrl: 'partials/home.html',
+		controller: 'HomeCtrl',
+		resolve: {isAuth}
+	})
+	.when('/profile', {
+		templateUrl: 'partials/profile.html',
+		controller: 'ProfileCtrl',
+		resolve: {isAuth}
+	})
 	.when('/boards', {
 		templateUrl: 'partials/boardView.html',
-		controller: 'BoardCtrl'
-		// resolve: {isAuth}
+		controller: 'BoardCtrl',
+		resolve: {isAuth}
 	})
 	.when('/createpin', {
 		templateUrl: 'partials/createpin.html',
-		controller: 'BoardCtrl'
+		controller: 'BoardCtrl',
+		resolve: {isAuth}
 	})
 	.otherwise('/');
 });
