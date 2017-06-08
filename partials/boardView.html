@@ -1,18 +1,18 @@
 <div class="container">
-<h4>{{}}</h4>
-
-<div>
-
-	<div></div>
-
-</div>
-<!--add a createPin Btn, deletePin Btn, and deleteBoard Btn -->
-
-<!--add a ng-click to createPin, deletePin, and deleteBoard-->
-
 
 <!-- when createPin is clicked the createpin.html partial will load. -->
-<a ng-href="#!/pins/{{pins.id}}/createpin"><button>Create Pin</button></a>
+<a ng-model="{{boardID}}" ng-href="#!/createpin/{{boardID}}"><button>Create Pin</button></a>
+
+<div ng-repeat="item in pinsForBoard">
+	 <p>{{item.title}}</p>
+	 <img ng-src="{{item.url}}">
+	 <button ng-click="deletePin(item.pinID)">Delete Pin</button>
+</div>
+
+<!--deleteBoard Btn: this will remove the board and $locate -->
+<button ng-click="deleteBoard()" class="delBoard">X</button>
+
+<!--add a ng-click to createPin, deletePin, and deleteBoard-->
 </div>
 
 
