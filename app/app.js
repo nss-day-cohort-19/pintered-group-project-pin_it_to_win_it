@@ -49,7 +49,7 @@ app.config( ($routeProvider) => {
 		controller: 'BoardCtrl',
 		resolve: {isAuth}
 	})
-	.when('/createpin', {
+	.when('/createpin/:boardID', {
 		templateUrl: 'partials/createpin.html',
 		controller: 'CreatePinCtrl',
 		resolve: {isAuth}

@@ -23,6 +23,19 @@ app.factory("DataFactory", ($q, $http, FBCreds) => {
 		});
 	};
 
+	const getBoardPins = (ID) => {
+		// let pins = [];
+		return $q( (resolve, reject) => {
+			$http.get(`${FBCreds.databaseURL}/pins.json?orderBy="boardID"&equalTo="${ID}"`)
+			.then( (pins) => {
+				resolve(pins);
+			})
+			.catch( (error) => {
+				reject(error);
+			});
+		});
+	};
+
 	const getPin = (pinID) => {
 		return $q( (resolve, reject) => {
 			$http.get(`${FBCreds.databaseURL}/pins/${pinID}.json`)
@@ -63,6 +76,18 @@ app.factory("DataFactory", ($q, $http, FBCreds) => {
 		});
 	};
 
+	const deletePin = (pinID) => {
+		return $q ( (resolve, reject) => {
+			$http.delete(`${FBCreds.databaseURL}/pins/${pinID}.json`)
+			.then( (response) => {
+				resolve(response);
+			})
+			.catch( (error) => {
+				reject(error);
+			});
+		});
+	};
+
 	const getBoardList = (user) => {
 		console.log("boardlist here");
 		let boards = [];
@@ -95,7 +120,7 @@ app.factory("DataFactory", ($q, $http, FBCreds) => {
 		});
 	};
 
-	const deleteBoard = (uid, boardId) => {
+	const deleteBoard = (boardId) => {
 		return $q ( (resolve, reject) => {
 			$http.delete(`${FBCreds.databaseURL}/boards/${boardId}.json`)
 			.then( (response) => {
@@ -130,7 +155,9 @@ app.factory("DataFactory", ($q, $http, FBCreds) => {
 		deleteBoard,
 		addPin,
 		addBoard,
-		getBoard
+		getBoard,
+		getBoardPins,
+		deletePin
 	};
 
 // getBoard ???
