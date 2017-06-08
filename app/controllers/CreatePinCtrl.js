@@ -15,7 +15,7 @@ app.controller("CreatePinCtrl", function($scope, DataFactory, $location, AuthFac
 	$scope.addPin = function(){
 		DataFactory.addPin($scope.newPin)
 		.then( (data) => {
-			$location.path("./boards/{$routeParams.boardID}");
+			$location.path(`/boards/${$routeParams.boardID}`);
 		});
 	};
 

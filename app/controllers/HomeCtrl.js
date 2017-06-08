@@ -1,30 +1,23 @@
 "use strict";
 console.log("Hi HomeCtrl");
-app.controller("HomeCtrl", function($scope, DataFactory) {
+app.controller("HomeCtrl", function($scope, DataFactory, AuthFactory) {
 
 	// console.log("$routeParams", $routeParams);
 	$scope.pinList = []; //this has all the pins in FB
-
+	let user = AuthFactory.getUser();
 
 	let getPinList = function () {
 		DataFactory.getPinList()
 		.then( (pins) => {
-			$scope.pinList = pins;
-			console.log("pins", $scope.pinList);
+			let array = $(pins).filter(function(index, obj){
+				return obj.uid !== user;
+			});
+			$scope.pinList = array;
+			console.log("filtered array", array);
+
 		});
 	};
 
-
-
-	// $scope.editPin = function(){
-	// 	DataFactory.editPin($scope.pinID, $scope.pinObj);
-	// };
-
-
-
-	// $scope.showBoardID = function(boardID){
-	// 	$scope.pinObj.boardID.push(boardID);
-	// };
 
 
 	getPinList();
