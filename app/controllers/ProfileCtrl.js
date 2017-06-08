@@ -1,10 +1,11 @@
 "use strict";
 console.log("Profile Ctrl loads");
 
-app.controller('ProfileCtrl', function($scope, DataFactory, $location, AuthFactory, $routeParams) {
+app.controller('ProfileCtrl', function($scope, DataFactory, $location, AuthFactory, $routeParams, SearchTermData) {
 	// pass SearchTermData (from FilterFactory) into above function once created
 
 	// $scope.searchText = SearchTermData; (add once SearchTermData is created)
+	$scope.searchText = SearchTermData;
 	let user = AuthFactory.getUser();
 	console.log("user from profile ctrl", user);
 
