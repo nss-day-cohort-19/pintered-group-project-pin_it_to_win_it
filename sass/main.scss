@@ -1,0 +1,9 @@
+.all-cards {
+	column-count: 4;
+	margin: 5px 10px;
+}
+
+.one-card {
+	-webkit-column-break-inside: avoid;
+}
+
