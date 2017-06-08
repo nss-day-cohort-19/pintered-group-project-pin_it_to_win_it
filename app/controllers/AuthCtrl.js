@@ -4,12 +4,13 @@ app.controller("AuthCtrl", ["$scope", "AuthFactory", "$window", "$location",
 	function($scope, AuthFactory, $window, $location){
 		console.log('AuthCtrl is activated');
 
-		let logout = function(){
+		$scope.logout = function(){
 			AuthFactory.logoutUser()
 			.then(function(data){
 				// $window.location.url= '#!/login'; //which one do I use?
-				$location.path('/login'); //which one do I use?
+				$location.path('/'); //which one do I use?
 				$scope.$apply();
+				console.log("hello");
 			}, function(error){
 				console.log('There was an error logging user out');
 			});
