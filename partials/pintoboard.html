@@ -1,8 +1,16 @@
-<div class="row">
-	<h1>Pin To Board</h1>
-	<div>{{item.boards}}</div>
-		<a class='dropdown-button btn' ng-href='#!/pintoboard/{{board.id}}' data-activates='dropdown1' ng-click="getBoardList()">Select Board</a>
-		<ul id='dropdown1' class='dropdown-content'>
-		    <li><a ng-href="#!">{{item.title}}</a></li>
-		</ul>
+
+<div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" ng-src="pinObj.url">
+    </div>
+    <div class="card-content">
+      <span ng-model="pinObj" class="card-title activator grey-text text-darken-4">{{pinObj.title}}<i class="material-icons right">more_vert</i></span>
+      <!-- <p><a href="#">This is a link</a></p> -->
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Choose a Board<i class="material-icons right">close</i></span>
+      	<select ng-change="fireSomeFunction" ng-repeat="item in userBoards">
+			<option ng-value="item.boardID">{{item.title}}</option>
+		</select>
+    </div>
 </div>

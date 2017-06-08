@@ -23,6 +23,18 @@ app.factory("DataFactory", ($q, $http, FBCreds) => {
 		});
 	};
 
+	const getPin = (pinID) => {
+		return $q( (resolve, reject) => {
+			$http.get(`${FBCreds.databaseURL}/pins/${pinID}.json`)
+			.then( (pinObj) => {
+				resolve(pinObj);
+			})
+			.catch( (error) => {
+				reject(error);
+			});
+		});
+	};
+
 // This is for the createPin
 	const addPin = (newObj) => {
 		return $q( (resolve, reject) => {
