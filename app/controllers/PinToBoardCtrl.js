@@ -27,14 +27,14 @@ app.controller('PinToBoardCtrl', ["$scope", "$routeParams", "DataFactory", "$loc
 		//get pin from FB, pass to partial, clone and addPin to FB with new boardID
 		DataFactory.getPin($routeParams.pinID)
 		.then(function(singlePin){
-			console.log("singlePin", singlePin);
 			$scope.pinObj = singlePin.data;
+			console.log("$scope.pinObj", $scope.pinObj);
 		});
 
 		$scope.addPin = function(){
 			DataFactory.addPin($scope.pinObj)
 				.then(function(data){
-					console.log("cloned pin", data);
+					// console.log("cloned pin", data);
 					//add a path to home
 					$location.path('/home');
 

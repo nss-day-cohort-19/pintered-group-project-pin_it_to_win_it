@@ -4,13 +4,13 @@ app.factory("DataFactory", ($q, $http, FBCreds) => {
 
 
 	const getPinList = () => {
-		console.log("PinList here");
+		// console.log("PinList here");
 		let pins = [];
 		return $q( (resolve, reject) => {
 			$http.get(`${FBCreds.databaseURL}/pins.json`)
 			.then( (pinObj) => {
 				let pinCollection = pinObj.data;
-				console.log("pinCollection", pinCollection);
+				// console.log("pinCollection", pinCollection);
 			  	Object.keys(pinCollection).forEach( (key) => {
 			  		pinCollection[key].pinID = key;
 			  		pins.push(pinCollection[key]);
@@ -24,11 +24,16 @@ app.factory("DataFactory", ($q, $http, FBCreds) => {
 	};
 
 	const getBoardPins = (ID) => {
-		// let pins = [];
+		let data = [];
 		return $q( (resolve, reject) => {
 			$http.get(`${FBCreds.databaseURL}/pins.json?orderBy="boardID"&equalTo="${ID}"`)
 			.then( (pins) => {
-				resolve(pins);
+				let boardPins = pins.data;
+				Object.keys(boardPins).forEach( (key) => {
+			  		boardPins[key].pinID = key;
+			  		data.push(boardPins[key]);
+			  	});
+				resolve(data);
 			})
 			.catch( (error) => {
 				reject(error);
@@ -89,13 +94,13 @@ app.factory("DataFactory", ($q, $http, FBCreds) => {
 	};
 
 	const getBoardList = (user) => {
-		console.log("boardlist here");
+		// console.log("boardlist here");
 		let boards = [];
 		return $q( (resolve, reject) => {
 			$http.get(`${FBCreds.databaseURL}/boards.json?orderBy="uid"&equalTo="${user}"`)
 			.then( (boardObj) => {
 				let boardCollection = boardObj.data;
-				console.log("boardCollection", boardCollection);
+				// console.log("boardCollection", boardCollection);
 				Object.keys(boardCollection).forEach( (key) => {
 					boardCollection[key].boardID = key;
 					boards.push(boardCollection[key]);
