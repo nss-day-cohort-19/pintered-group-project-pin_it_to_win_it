@@ -36,7 +36,7 @@ app.config( ($routeProvider) => {
 	})
 	.when('/pintoboard/:pinID', {
 		templateUrl: 'partials/pintoboard.html',
-		controller: 'HomeCtrl',
+		controller: 'PinToBoardCtrl',
    		resolve: {isAuth}
 	})
 	.when('/profile', {
@@ -51,12 +51,12 @@ app.config( ($routeProvider) => {
 	})
 	.when('/createpin', {
 		templateUrl: 'partials/createpin.html',
-		controller: 'BoardCtrl',
+		controller: 'CreatePinCtrl',
 		resolve: {isAuth}
 	})
 	.when('/createboard', {
 		templateUrl: 'partials/createboard.html',
-		controller: 'ProfileCtrl',
+		controller: 'CreateBoardCtrl',
     	resolve: {isAuth}
 	})
 	.otherwise('/');

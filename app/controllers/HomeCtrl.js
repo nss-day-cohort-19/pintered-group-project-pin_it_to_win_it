@@ -1,25 +1,12 @@
 "use strict";
 console.log("Hi HomeCtrl");
-app.controller("HomeCtrl", function($scope, DataFactory, $location, AuthFactory, $routeParams) {
+app.controller("HomeCtrl", function($scope, DataFactory) {
 
-	console.log("$routeParams", $routeParams);
-
-	$scope.pinObj = { //this will
-		boardID: [],
-		pinID: "",
-		title: "",
-		UID: "",
-		url: ""
-	};
-	$scope.pinList = [];
-	$scope.pinID = $routeParams.pinID;
+	// console.log("$routeParams", $routeParams);
+	$scope.pinList = []; //this has all the pins in FB
 
 
-	let user = AuthFactory.getUser();
-	console.log("user as seen by HomeCtrl", user);
-	$scope.userBoards = "";
-
-	$scope.getPinList = function () {
+	let getPinList = function () {
 		DataFactory.getPinList()
 		.then( (pins) => {
 			$scope.pinList = pins;
@@ -27,33 +14,21 @@ app.controller("HomeCtrl", function($scope, DataFactory, $location, AuthFactory,
 		});
 	};
 
-	$scope.getBoardList = function(user) {
-			DataFactory.getBoardList()
-			.then( (boards) => {
-				//filter boards by current UID
-				$scope.userBoards = boards;
-				console.log("userBoards", $scope.userBoards);
-			});
-		};
-
-	$scope.editPin = function(){
-		DataFactory.editPin($scope.pinID, $scope.pinObj);
-	};
-
-	$scope.getPin = function(pinID){
-		DataFactory.getpin(pinID)
-		.then(function(singlePin){
-			$scope.pinObj = singlePin;
-		});
-	};
-
-	$scope.showBoardID = function(boardID){
-		$scope.pinObj.boardID.push(boardID);
-	};
 
 
-	$scope.getPinList();
-	$scope.getBoardList();
+	// $scope.editPin = function(){
+	// 	DataFactory.editPin($scope.pinID, $scope.pinObj);
+	// };
+
+
+
+	// $scope.showBoardID = function(boardID){
+	// 	$scope.pinObj.boardID.push(boardID);
+	// };
+
+
+	getPinList();
+	// $scope.getBoardList();
 
 
 });
