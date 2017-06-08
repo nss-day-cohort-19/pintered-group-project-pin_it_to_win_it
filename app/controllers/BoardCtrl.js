@@ -1,11 +1,11 @@
 "use strict";
 
-app.controller("BoardCtrl", function($scope, DataFactory, $location, $routeParams) {
+app.controller("BoardCtrl", function($scope, DataFactory, $location, $routeParams, SearchTermData) {
 
 	console.log("$routeParams", $routeParams.boardID);
 // This view has the following buttons: "Create Pin", "Delete Pin", "Delete Board".
 
-
+	$scope.searchText = SearchTermData;
 	$scope.pinsForBoard = [];
 	$scope.boardID = $routeParams.boardID;
 

@@ -1,10 +1,11 @@
 "use strict";
 
-app.controller('NavCtrl', function ($scope, AuthFactory, $window/*, searchTermData*/) {
+app.controller('NavCtrl', function ($scope, AuthFactory, $window, SearchTermData) {
 
   // Log Button Function
 
   $scope.isLoggedIn = false;
+  $scope.searchText = SearchTermData;
   // $scope.searchText = searchTermData;  //item we inject into our controller
 
   firebase.auth().onAuthStateChanged(function (user) {  //returning a promise to us and checking if there is a user

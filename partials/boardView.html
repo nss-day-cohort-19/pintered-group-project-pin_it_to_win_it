@@ -3,7 +3,7 @@
 <!-- when createPin is clicked the createpin.html partial will load. -->
 <a ng-model="boardID" ng-href="#!/createpin/{{boardID}}"><button>Create Pin</button></a>
 
-<div ng-repeat="item in pinsForBoard">
+<div ng-repeat="item in pinsForBoard | filter: searchText.search">
 	 <p>{{item.title}}</p>
 	 <img ng-src="{{item.url}}">
 	 <button ng-click="deletePin(item.pinID)">Delete Pin</button>

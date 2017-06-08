@@ -1,8 +1,9 @@
 "use strict";
 console.log("Hi HomeCtrl");
-app.controller("HomeCtrl", function($scope, DataFactory, AuthFactory) {
+app.controller("HomeCtrl", function($scope, DataFactory, AuthFactory, SearchTermData) {
 
 	// console.log("$routeParams", $routeParams);
+	$scope.searchText = SearchTermData;
 	$scope.pinList = []; //this has all the pins in FB
 	let user = AuthFactory.getUser();
 
