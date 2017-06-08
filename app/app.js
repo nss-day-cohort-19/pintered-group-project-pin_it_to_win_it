@@ -44,7 +44,7 @@ app.config( ($routeProvider) => {
 		controller: 'ProfileCtrl',
 		resolve: {isAuth}
 	})
-	.when('/boards', {
+	.when('/boards/:boardID', {
 		templateUrl: 'partials/boardView.html',
 		controller: 'BoardCtrl',
 		resolve: {isAuth}

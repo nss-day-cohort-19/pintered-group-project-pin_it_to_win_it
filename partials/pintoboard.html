@@ -1,4 +1,4 @@
-
+<!--
 <div class="row">
     <div class="col s12 m6">
 		<div class="card">
@@ -7,7 +7,7 @@
 		    </div>
 		    <div class="card-content">
 		      <span ng-model="pinObj" class="card-title activator grey-text text-darken-4">{{pinObj.title}}<i class="material-icons right">more_vert</i></span>
-		      <!-- <p><a href="#">This is a link</a></p> -->
+		      <p><a href="#">This is a link</a></p>
 		    </div>
 		    <div class="card-reveal">
 		        <span class="card-title grey-text text-darken-4">Choose a Board<i class="material-icons right">close</i></span>
@@ -18,5 +18,16 @@
 		    </div>
 		</div>
 	</div>
+</div> -->
+
+<div class="card-image waves-effect waves-block waves-light">
+	<img class="activator" ng-src="{{pinObj.url}}">
+	<h4 ng-model="pinObj" class="">{{pinObj.title}}</h4>
+	<!-- <p>Choose a Board</p> -->
+	<select ng-model="pinObj.boardID" name="hello">
+		<option ng-repeat="item in userBoards" ng-value="item.boardID">{{item.title}}</option>
+	</select>
+	<button ng-click="addPin()">Add to Board</button>
 </div>
+
 

@@ -10,7 +10,8 @@ app.controller('ProfileCtrl', function($scope, DataFactory, $location, AuthFacto
 
 	$scope.boards = {
 		name: "",
-		uid: user
+		uid: user,
+		boardID: ""
 	};
 
 	$scope.getBoardList = function() {
