@@ -123,15 +123,16 @@ app.factory("DataFactory", ($q, $http, FBCreds) => {
 
 
 	return {
-	  getPinList,
-	  getBoardList,
-	  editPin,
-	  deleteBoard,
-	  addPin,
-	  addBoard,
-	  getBoard
+		getPin,
+		getPinList,
+		getBoardList,
+		editPin,
+		deleteBoard,
+		addPin,
+		addBoard,
+		getBoard
 	};
-// getPin ???
+
 // getBoard ???
 });
 

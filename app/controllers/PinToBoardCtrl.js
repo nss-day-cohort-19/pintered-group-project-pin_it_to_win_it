@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('PinToBoardCtrl', ["$scope", "$routeParams", "DataFactory", "$location",
+app.controller('PinToBoardCtrl', ["$scope", "$routeParams", "DataFactory", "$location", "AuthFactory",
 	function($scope, $routeParams, DataFactory, $location, AuthFactory){
 
 		$scope.pinObj = {
@@ -23,35 +23,25 @@ app.controller('PinToBoardCtrl', ["$scope", "$routeParams", "DataFactory", "$loc
 			console.log("userBoards", $scope.userBoards);
 		});
 
-		//get id of board to which pin will be added
-		$scope.getBoardID = function(id){
-			$scope.pinObj.boardID = id;
-		};
 
 		//get pin from FB, pass to partial, clone and addPin to FB with new boardID
-		DataFactory.getpin($routeParams.pinID)
+		DataFactory.getPin($routeParams.pinID)
 		.then(function(singlePin){
-			$scope.pinObj = singlePin;
-			//add boardID to pinObj
-			// DataFactory.addPin($scope.pinObj)
-			// .then(function(data){
-			// 	console.log("cloned pin", data);
-			// });
+			console.log("singlePin", singlePin);
+			$scope.pinObj = singlePin.data;
 		});
 
 		$scope.addPin = function(){
 			DataFactory.addPin($scope.pinObj)
 				.then(function(data){
 					console.log("cloned pin", data);
+					//add a path to home
+					$location.path('/home');
+
 			});
 		};
 
 
-
-
-
-		// $scope.getBoardList(user);
-		// $scope.getPin(pinID);
 
 }]);
 
