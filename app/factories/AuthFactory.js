@@ -16,7 +16,7 @@ app.factory("AuthFactory", function(){
                 if (user){
                     console.log('isAuthenticated user', user);
                     currentUser = user.uid;
-                    // console.log("user", user.uid);
+                    console.log("user", user.uid);
                     resolve(true);
                 }else {
                     resolve(false);
@@ -26,7 +26,7 @@ app.factory("AuthFactory", function(){
     };
 
     let getUser = function(){
-        // console.log("currUSER", currentUser);
+        console.log("currUSER", currentUser);
         return currentUser;
     };
 
