@@ -1,16 +1,21 @@
 
-<div class="card">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" ng-src="pinObj.url">
-    </div>
-    <div class="card-content">
-      <span ng-model="pinObj" class="card-title activator grey-text text-darken-4">{{pinObj.title}}<i class="material-icons right">more_vert</i></span>
-      <!-- <p><a href="#">This is a link</a></p> -->
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">Choose a Board<i class="material-icons right">close</i></span>
-      	<select ng-change="fireSomeFunction" ng-repeat="item in userBoards">
-			<option ng-value="item.boardID">{{item.title}}</option>
-		</select>
-    </div>
+<div class="row">
+    <div class="col s12 m6">
+		<div class="card">
+		    <div class="card-image waves-effect waves-block waves-light">
+		      <img class="activator" ng-src="pinObj.url">
+		    </div>
+		    <div class="card-content">
+		      <span ng-model="pinObj" class="card-title activator grey-text text-darken-4">{{pinObj.title}}<i class="material-icons right">more_vert</i></span>
+		      <!-- <p><a href="#">This is a link</a></p> -->
+		    </div>
+		    <div class="card-reveal">
+		        <span class="card-title grey-text text-darken-4">Choose a Board<i class="material-icons right">close</i></span>
+		      	<select ng-repeat="item in userBoards">
+					<option ng-value="item.boardID" ng-href="#!/home" ng-change="getBoardId(ng-value)">{{item.title}}</option>
+				</select>
+				<button ng-click="addPin()">Add to Board</button>
+		    </div>
+		</div>
+	</div>
 </div>
