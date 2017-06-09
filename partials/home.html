@@ -1,13 +1,6 @@
-<!-- <div class="row">
-	<h1>Home Page</h1>
-	<div ng-repeat="item in pinList">
-		<div><a ng-click="getPin(item.pinID)" ng-href="#!/pintoboard/{{item.pinID}}">{{item.url}}</a></div>
-		<div>{{item.title}}</div>
-	</div>
-</div> -->
-<div class="all-cards">
-<div class="container one-card">
-	<div class="row" ng-repeat="item in pinList | filter: searchText.search">
+<!-- <div class="all-cards">
+<div class="container">
+	<div class="col-sm-3 one-card" ng-repeat="item in pinList | filter: searchText.search">
 		<div class="col-sm-3 col-md-3">
 			<div class="thumbnail one-card">
 		    	<a ng-href="#!/pintoboard/{{item.pinID}}">
@@ -19,8 +12,33 @@
 		</div>
 	</div>
 </div>
+</div> -->
+
+<div class="all-cards">
+<div class="flexy">
+	<div class="one-card" ng-repeat="item in pinList | filter: searchText.search">
+	    <!-- <div class="borderDiv"> -->
+	    	<a ng-href="#!/pintoboard/{{item.pinID}}">
+	          	<img class="image" ng-src="{{item.url}}">
+	          	<div class="caption">{{item.title}}</div>
+			</a>
+		<!-- </div> -->
+	</div>
+</div>
 </div>
 
+<!-- <div class="container">
+	<div class="all-cards" ng-repeat="item in pinList | filter: searchText.search">
+		<a ng-href="#!/pintoboard/{{item.pinID}}">
+			<div class="cardImg">
+				<img ng-src="{{item.url}}">
+			</div>
+			<div class="caption">
+				<span class="card-title">{{item.title}}</span>
+		    </div>
+		</a>
+	</div>
+</div> -->
 
 
 

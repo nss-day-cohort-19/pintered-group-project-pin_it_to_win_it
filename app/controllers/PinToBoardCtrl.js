@@ -7,7 +7,7 @@ app.controller('PinToBoardCtrl', ["$scope", "$routeParams", "DataFactory", "$loc
 			boardID: "",
 			pinID: "",
 			title: "",
-			UID: "",
+			uid: "",
 			url: ""
 		};
 		$scope.pinID = $routeParams.pinID;
@@ -32,6 +32,7 @@ app.controller('PinToBoardCtrl', ["$scope", "$routeParams", "DataFactory", "$loc
 		});
 
 		$scope.addPin = function(){
+			$scope.pinObj.uid = user;
 			DataFactory.addPin($scope.pinObj)
 				.then(function(data){
 					// console.log("cloned pin", data);
