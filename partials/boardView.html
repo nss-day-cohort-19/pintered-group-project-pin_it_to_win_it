@@ -1,6 +1,4 @@
-<div class="container">
-
-<!-- when createPin is clicked the createpin.html partial will load. -->
+<!-- <div class="container">
 <a ng-model="boardID" ng-href="#!/createpin/{{boardID}}"><button>Create Pin</button></a>
 
 <div ng-repeat="item in pinsForBoard | filter: searchText.search">
@@ -8,11 +6,28 @@
 	 <img ng-src="{{item.url}}">
 	 <button ng-click="deletePin(item.pinID)">Delete Pin</button>
 </div>
-
-<!--deleteBoard Btn: this will remove the board and $locate -->
 <button ng-click="deleteBoard()" class="delBoard">Delete Board</button>
+</div> -->
 
-<!--add a ng-click to createPin, deletePin, and deleteBoard-->
+
+<div class="all-cards">
+	<div class="flexy">
+		<div class="one-card">
+			<a ng-model="boardID" ng-href="#!/createpin/{{boardID}}">
+				<div class="borderDivPin">
+				Create Pin
+				</div>
+			</a>
+		</div>
+		<div class="one-card" ng-repeat="item in pinsForBoard | filter: searchText.search">
+			 <!-- <a href=""> -->
+			 	<img class="image" ng-src="{{item.url}}">
+			 	<div class="caption">{{item.title}}</div>
+			 	<button class="deletePin" ng-click="deletePin(item.pinID)">Delete Pin</button>
+			 <!-- </a> -->
+		</div>
+		<button class="rounded" ng-click="deleteBoard()">Delete Board</button>
+	</div>
 </div>
 
 

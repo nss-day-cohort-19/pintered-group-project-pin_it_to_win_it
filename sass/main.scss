@@ -3,6 +3,7 @@
 	// margin: 5px 10px;
 	width: 90%;
 	margin: auto;
+	margin-bottom: 10rem;
 }
 
 .flexy {
@@ -31,6 +32,15 @@
 	// justify-content: space-around;
 }
 
+.borderDivPin {
+	border: solid 1px grey;
+	border-radius: 5px;
+	width: 268px;
+	height: 268px;
+	background-color: lightgrey;
+	padding: 15rem 0;
+}
+
 #addBoard {
 	vertical-align: bottom;
 }
@@ -52,9 +62,29 @@
 	border-radius: 0 0 5px 5px;
 }
 
+.deletePin {
+	margin-top: -1px;
+	background-color: lightgrey;
+	text-style: none;
+	border-radius: 0 0 5px 5px
+}
+
+.rounded {
+	border-radius: 5px;
+}
+
+#deleteBoard {
+	justify-content: center;
+}
+
+#logInImg {
+	display: block;
+	margin: auto;
+	width: 90%;
+}
 
 label {
-	margin: .5rem 0;
+	margin: 0.5rem 0;
 }
 
 button {
