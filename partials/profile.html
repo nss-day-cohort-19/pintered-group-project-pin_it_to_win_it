@@ -1,8 +1,26 @@
-<div class="container">
+<!-- <div class="container">
 	<h1>Boards</h1>
 	<div class="col-xs-3"><a ng-href="#!/createboard">Create New Board</a>
 	<div ng-repeat="item in boards | filter: searchText.search">
 		<div class="col-xs-3"><a ng-href="#!/boards/{{item.boardID}}">{{ item.title }}</a></div>
 	</div>
-</div>
+</div> -->
 
+<div class="all-cards">
+	<h1 style="padding-left: 2rem;">Boards</h1>
+<div class="flexy">
+	<div class="one-card">
+		<a id="addBoard" ng-href="#!/createboard">
+			<div class="borderDiv">
+			Create New Board
+			</div>
+		</a>
+	</div>
+	<div class="one-card" ng-repeat="item in boards | filter: searchText.search">
+		<a ng-href="#!/boards/{{item.boardID}}">
+			<img class="image" src="https://s-media-cache-ak0.pinimg.com/736x/4f/40/4f/4f404fbe7112504096f6280805893d7d.jpg">
+			<div class="caption">{{item.title}}</div>
+		</a>
+	</div>
+</div>
+</div>

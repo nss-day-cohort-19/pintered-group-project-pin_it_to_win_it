@@ -1,10 +1,48 @@
 .all-cards {
-	column-count: 4;
-	margin: 5px 10px;
+	// column-count: 4;
+	// margin: 5px 10px;
+	width: 90%;
+	margin: auto;
+	margin-bottom: 10rem;
+}
+
+.flexy {
+	display: flex;
+	flex-wrap: wrap;
+	// justify-content: space-around;
+	justify-content: flex-start;
 }
 
 .one-card {
-	-webkit-column-break-inside: avoid;
+	// -webkit-column-break-inside: avoid;
+	flex: 0 0 25%;
+	padding: 10px;
+	text-align: center;
+}
+
+.borderDiv {
+	border: solid 1px grey;
+	border-radius: 5px;
+	width: 268px;
+	height: 403.42px;
+	background-color: lightgrey;
+	padding: 15rem 0;
+	// display: flex;
+	// flex-wrap: wrap;
+	// justify-content: space-around;
+}
+
+.borderDivPin {
+	border: solid 1px grey;
+	border-radius: 5px;
+	width: 268px;
+	height: 268px;
+	background-color: lightgrey;
+	padding: 15rem 0;
+}
+
+#addBoard {
+	vertical-align: bottom;
 }
 
 .pinToBoard {
@@ -12,6 +50,43 @@
 	margin: 0 auto;
 }
 
-label, button {
-	margin: .5rem 0;
+.image {
+	// max-width: 100%;
+	width: 100%;
+	border-radius: 5px 5px 0 0;
+}
+
+.caption {
+	background-color: lightgrey;
+	text-style: none;
+	border-radius: 0 0 5px 5px;
+}
+
+.deletePin {
+	margin-top: -1px;
+	background-color: lightgrey;
+	text-style: none;
+	border-radius: 0 0 5px 5px
+}
+
+.rounded {
+	border-radius: 5px;
+}
+
+#deleteBoard {
+	justify-content: center;
+}
+
+#logInImg {
+	display: block;
+	margin: auto;
+	width: 90%;
+}
+
+label {
+	margin: 0.5rem 0;
+}
+
+button {
+	margin: 2rem;
 }
